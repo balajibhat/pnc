@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PNC Brand Direction 2: The Collective</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --gunmetal: #4a5259;
+    --gunmetal-deep: #3a4148;
+    --terracotta: #b5664f;
+    --terracotta-light: #d4a090;
+    --sage: #7a8c72;
+    --sage-light: #c4cdb9;
+    --gulf-blue: #5b8a9a;
+    --gulf-deep: #3d6b7a;
+    --sand: #e6ddd0;
+    --linen: #f5f1eb;
+    --warm-white: #faf8f5;
+    --cde-blue: #2756c7;
+    --cde-black: #1e1e1e;
+  }
+  body { background: var(--warm-white); font-family: 'Outfit', sans-serif; color: var(--gunmetal-deep); }
+
+  /* ── CDE Header ── */
+  .cde-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 24px 60px; background: var(--cde-black); border-bottom: 3px solid var(--cde-blue);
+  }
+  .cde-logo { font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 13px; letter-spacing: 3px; color: #fff; text-transform: uppercase; }
+  .cde-logo span { color: var(--cde-blue); }
+  .cde-meta { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #888; }
+
+  /* ── Direction Header ── */
+  .direction-header {
+    background: var(--gunmetal-deep); color: var(--sand); padding: 80px 60px 60px; position: relative; overflow: hidden;
+  }
+  .direction-header::before {
+    content: ''; position: absolute; top: -100px; right: -100px; width: 500px; height: 500px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(91,138,154,0.12) 0%, transparent 70%);
+  }
+  .direction-header::after {
+    content: ''; position: absolute; bottom: -80px; left: -60px; width: 400px; height: 400px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(181,102,79,0.1) 0%, transparent 70%);
+  }
+  .direction-label { font-weight: 500; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--gulf-blue); margin-bottom: 20px; position: relative; }
+  .direction-header h1 { font-family: 'Cormorant Garamond', serif; font-size: 56px; font-weight: 500; line-height: 1.1; margin-bottom: 12px; position: relative; }
+  .direction-header h1 em { font-style: italic; color: var(--terracotta-light); }
+  .direction-header-sub { font-size: 15px; font-weight: 300; color: var(--sand); max-width: 580px; line-height: 1.7; position: relative; }
+
+  /* ── Section ── */
+  .section { padding: 70px 60px; border-bottom: 1px solid #ddd6cb; }
+  .section-label { font-weight: 600; font-size: 11px; letter-spacing: 5px; text-transform: uppercase; color: var(--terracotta); margin-bottom: 40px; }
+
+  /* ── Color Story ── */
+  .color-story { max-width: 760px; margin-bottom: 48px; }
+  .color-story h3 { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 500; color: var(--gunmetal-deep); margin-bottom: 16px; }
+  .color-story p { font-size: 14px; line-height: 1.85; color: var(--gunmetal); font-weight: 300; }
+
+  /* ── Palette ── */
+  .palette { display: flex; gap: 24px; }
+  .swatch { flex: 1; text-align: center; }
+  .swatch-color { height: 110px; border-radius: 10px; margin-bottom: 14px; position: relative; overflow: hidden; }
+  .swatch-label { position: absolute; bottom: 10px; left: 0; right: 0; font-size: 8px; letter-spacing: 2px; text-transform: uppercase; font-weight: 400; opacity: 0.7; }
+  .swatch-name { font-size: 13px; font-weight: 500; color: var(--gunmetal-deep); margin-bottom: 4px; }
+  .swatch-hex { font-size: 11px; color: var(--terracotta); letter-spacing: 1px; }
+
+  /* ── Textures ── */
+  .texture-row { display: grid; grid-template-columns: 1fr 1fr 1fr; }
+  .texture-panel { min-height: 340px; display: flex; align-items: flex-end; padding: 40px; position: relative; overflow: hidden; }
+  .texture-1 { background: var(--sand); }
+  .texture-1::after {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(74,82,89,0.03) 3px, rgba(74,82,89,0.03) 4px),
+      repeating-linear-gradient(90deg, transparent, transparent 3px, rgba(74,82,89,0.03) 3px, rgba(74,82,89,0.03) 4px);
+  }
+  .texture-2 { background: var(--terracotta); background-image: linear-gradient(160deg, var(--terracotta) 0%, #9e5440 100%); }
+  .texture-2::before {
+    content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    width: 300px; height: 300px; border: 1px solid rgba(230,221,208,0.2); border-radius: 50%;
+  }
+  .texture-2::after {
+    content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    width: 200px; height: 200px; border: 1px solid rgba(230,221,208,0.15); border-radius: 50%;
+  }
+  .texture-3 {
+    background: linear-gradient(135deg, var(--gulf-deep) 0%, var(--gulf-blue) 50%, rgba(122,140,114,0.6) 100%);
+  }
+  .texture-3::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(180deg, transparent, transparent 20px, rgba(255,255,255,0.03) 20px, rgba(255,255,255,0.03) 21px);
+  }
+  .texture-label { position: relative; z-index: 1; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; }
+  .texture-1 .texture-label { color: var(--gunmetal-deep); }
+  .texture-2 .texture-label { color: var(--sand); }
+  .texture-3 .texture-label { color: var(--sand); }
+
+  /* ── Typography ── */
+  .type-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+  .type-sample h2 { font-family: 'Cormorant Garamond', serif; font-size: 44px; font-weight: 500; color: var(--gunmetal-deep); margin-bottom: 8px; line-height: 1.15; }
+  .type-meta { font-size: 11px; color: var(--terracotta); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px; }
+  .type-sample p { font-size: 15px; line-height: 1.85; color: var(--gunmetal-deep); font-weight: 300; }
+  .type-body-meta { font-size: 11px; color: var(--terracotta); letter-spacing: 2px; text-transform: uppercase; margin-top: 16px; }
+
+  /* ── Logo ── */
+  .logo-row { display: flex; gap: 48px; align-items: center; justify-content: center; flex-wrap: wrap; }
+  .logo-card { display: flex; align-items: center; justify-content: center; padding: 56px; min-width: 340px; min-height: 260px; border-radius: 8px; }
+  .logo-card.light { background: var(--linen); }
+  .logo-card.dark { background: var(--gunmetal-deep); }
+  .logo-desc { max-width: 640px; margin: 36px auto 0; text-align: center; }
+  .logo-desc h3 { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 500; color: var(--gunmetal-deep); margin-bottom: 10px; }
+  .logo-desc p { font-size: 14px; line-height: 1.8; color: var(--gunmetal-deep); font-weight: 300; }
+
+  /* ── Lockup ── */
+  .showcase-full { display: flex; align-items: center; justify-content: center; min-height: 320px; padding: 60px; }
+  .showcase-full.dark { background: var(--gunmetal-deep); }
+  .showcase-full.light { background: var(--linen); }
+  .lockup { display: flex; align-items: center; gap: 28px; }
+  .lockup-divider { width: 1px; height: 48px; }
+  .lockup-text { font-family: 'Cormorant Garamond', serif; line-height: 1.2; }
+  .lockup-text .name { font-size: 24px; font-weight: 500; letter-spacing: 0.5px; }
+  .lockup-text .descriptor { font-size: 11px; letter-spacing: 5px; text-transform: uppercase; font-family: 'Outfit', sans-serif; font-weight: 400; margin-top: 4px; }
+
+  /* ── Scale Grid ── */
+  .marks-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 900px; margin: 0 auto; }
+  .mark-cell { display: flex; align-items: center; justify-content: center; padding: 44px 28px; border-radius: 8px; }
+
+  /* ── PNC Framework ── */
+  .framework-section {
+    display: flex; align-items: center; justify-content: center; gap: 80px; padding: 80px 60px;
+    background: var(--linen); border-bottom: 1px solid #ddd6cb;
+  }
+  .framework-visual { flex-shrink: 0; }
+  .framework-text { max-width: 380px; }
+  .framework-text h3 { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 500; color: var(--gunmetal-deep); margin-bottom: 20px; }
+  .framework-item { margin-bottom: 20px; }
+  .framework-item .letter { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; margin-bottom: 2px; }
+  .framework-item .meaning { font-size: 13px; font-weight: 300; color: var(--gunmetal-deep); line-height: 1.6; }
+
+  /* ── UAE Story ── */
+  .uae-story-section {
+    padding: 80px 60px; background: var(--gunmetal-deep); position: relative; overflow: hidden;
+  }
+  .uae-story-section::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, rgba(91,138,154,0.08) 0%, transparent 40%, rgba(181,102,79,0.06) 70%, transparent 100%);
+  }
+  .uae-gradient-bar {
+    display: flex; height: 6px; border-radius: 3px; overflow: hidden; max-width: 400px; margin-bottom: 48px; position: relative;
+  }
+  .uae-gradient-bar div { flex: 1; }
+  .uae-story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; position: relative; }
+  .uae-story-left h3 { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 500; color: var(--sand); margin-bottom: 20px; }
+  .uae-story-left p { font-size: 14px; line-height: 1.85; color: var(--sand); font-weight: 300; opacity: 0.85; }
+  .uae-color-item { display: flex; align-items: flex-start; gap: 20px; margin-bottom: 28px; }
+  .uae-color-dot { width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0; margin-top: 2px; }
+  .uae-color-info .uae-color-name { font-size: 14px; font-weight: 500; color: var(--sand); margin-bottom: 2px; }
+  .uae-color-info .uae-color-meaning { font-size: 12px; font-weight: 300; color: var(--sand); opacity: 0.7; line-height: 1.5; }
+
+  /* ── Rationale ── */
+  .rationale { max-width: 760px; }
+  .rationale h3 { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 500; color: var(--gunmetal-deep); margin-bottom: 28px; }
+  .rationale p { font-size: 15px; line-height: 1.9; color: var(--gunmetal-deep); font-weight: 300; margin-bottom: 18px; }
+  .quote { border-left: 3px solid var(--terracotta); padding-left: 24px; margin: 32px 0; font-family: 'Cormorant Garamond', serif; font-size: 22px; font-style: italic; color: var(--gunmetal-deep); line-height: 1.5; }
+  .tag { display: inline-block; background: var(--gunmetal-deep); color: var(--sand); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; padding: 6px 14px; border-radius: 3px; margin-right: 8px; margin-bottom: 8px; }
+
+  /* ── Watermark ── */
+  .cde-watermark { position: fixed; bottom: 20px; right: 24px; z-index: 100; font-family: 'Outfit', sans-serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(39,86,199,0.35); pointer-events: none; }
+
+  /* ── Footer ── */
+  .cde-footer { display: flex; justify-content: space-between; align-items: center; padding: 32px 60px; background: var(--cde-black); border-top: 3px solid var(--cde-blue); }
+  .cde-footer-left { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #888; }
+  .cde-footer-right { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--cde-blue); }
+  .cde-footer-center { font-weight: 600; font-size: 11px; letter-spacing: 2px; color: #fff; text-transform: uppercase; }
+  .cde-footer-center span { color: var(--cde-blue); }
+</style>
+</head>
+<body>
+
+<div class="cde-header">
+  <div class="cde-logo">Core <span>Digital</span> Expansion</div>
+  <div class="cde-meta">Brand Exploration / Prepared March 2026</div>
+</div>
+<div class="cde-watermark">Prepared by CDE</div>
+
+<div class="direction-header">
+  <div class="direction-label">The Selected Direction</div>
+  <h1>The <em>Collective</em></h1>
+  <p class="direction-header-sub">Strength through trusted partnership. A network of seasoned professionals united by shared standards, not shared offices. Rooted in the landscape of the UAE.</p>
+</div>
+
+<!-- ═══ 01 / COLOR PALETTE ═══ -->
+<div class="section">
+  <div class="section-label">01 / Color Palette</div>
+  <div class="color-story">
+    <h3>Colors of the UAE</h3>
+    <p>Every color in this palette is drawn from the UAE landscape. Sand dunes that stretch to the horizon. The terracotta clay of heritage architecture. Green oases and mangrove coastlines. The Arabian Gulf meeting the shore. Gunmetal skies at dusk over the city skyline. Together they form a palette that feels both grounded and distinctly regional.</p>
+  </div>
+  <div class="palette">
+    <div class="swatch">
+      <div class="swatch-color" style="background:#e6ddd0;">
+        <div class="swatch-label" style="color:#4a5259;">The Desert</div>
+      </div>
+      <div class="swatch-name">Sand</div>
+      <div class="swatch-hex">#E6DDD0</div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#b5664f;">
+        <div class="swatch-label" style="color:#f5f1eb;">The Earth</div>
+      </div>
+      <div class="swatch-name">Terracotta</div>
+      <div class="swatch-hex">#B5664F</div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#7a8c72;">
+        <div class="swatch-label" style="color:#f5f1eb;">The Oasis</div>
+      </div>
+      <div class="swatch-name">Sage</div>
+      <div class="swatch-hex">#7A8C72</div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#5b8a9a;">
+        <div class="swatch-label" style="color:#f5f1eb;">The Gulf</div>
+      </div>
+      <div class="swatch-name">Gulf Blue</div>
+      <div class="swatch-hex">#5B8A9A</div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#4a5259;">
+        <div class="swatch-label" style="color:#e6ddd0;">The Skyline</div>
+      </div>
+      <div class="swatch-name">Gunmetal</div>
+      <div class="swatch-hex">#4A5259</div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#d4a090;">
+        <div class="swatch-label" style="color:#4a5259;">The Clay</div>
+      </div>
+      <div class="swatch-name">Clay</div>
+      <div class="swatch-hex">#D4A090</div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#f5f1eb;">
+        <div class="swatch-label" style="color:#4a5259;">The Light</div>
+      </div>
+      <div class="swatch-name">Linen</div>
+      <div class="swatch-hex">#F5F1EB</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ UAE COLOR STORY ═══ -->
+<div class="uae-story-section">
+  <div class="uae-gradient-bar">
+    <div style="background: #e6ddd0;"></div>
+    <div style="background: #b5664f;"></div>
+    <div style="background: #7a8c72;"></div>
+    <div style="background: #5b8a9a;"></div>
+    <div style="background: #4a5259;"></div>
+  </div>
+  <div class="uae-story-grid">
+    <div class="uae-story-left">
+      <h3>Rooted in Place</h3>
+      <p>PNC is a UAE-born brand. Its palette isn't borrowed from European minimalism or American corporate convention. Each color is a direct reference to the physical landscape where Prameela built her career and where her clients operate. The palette tells a story of place before it tells a story of profession.</p>
+    </div>
+    <div class="uae-story-right">
+      <div class="uae-color-item">
+        <div class="uae-color-dot" style="background: #e6ddd0;"></div>
+        <div class="uae-color-info">
+          <div class="uae-color-name">Sand</div>
+          <div class="uae-color-meaning">The desert foundation. The vast, warm neutral that underpins everything in the region.</div>
+        </div>
+      </div>
+      <div class="uae-color-item">
+        <div class="uae-color-dot" style="background: #b5664f;"></div>
+        <div class="uae-color-info">
+          <div class="uae-color-name">Terracotta</div>
+          <div class="uae-color-meaning">Old Dubai, heritage architecture, the earthen warmth of the souks and Al Fahidi.</div>
+        </div>
+      </div>
+      <div class="uae-color-item">
+        <div class="uae-color-dot" style="background: #7a8c72;"></div>
+        <div class="uae-color-info">
+          <div class="uae-color-name">Sage</div>
+          <div class="uae-color-meaning">The green of oases, mangroves, and the country's investment in sustainability.</div>
+        </div>
+      </div>
+      <div class="uae-color-item">
+        <div class="uae-color-dot" style="background: #5b8a9a;"></div>
+        <div class="uae-color-info">
+          <div class="uae-color-name">Gulf Blue</div>
+          <div class="uae-color-meaning">The Arabian Gulf, Dubai Creek, water as commerce and life. Depth without coldness.</div>
+        </div>
+      </div>
+      <div class="uae-color-item">
+        <div class="uae-color-dot" style="background: #4a5259;"></div>
+        <div class="uae-color-info">
+          <div class="uae-color-name">Gunmetal</div>
+          <div class="uae-color-meaning">The modern skyline at dusk. Softer than black, more considered, more contemporary.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 02 / TEXTURE ═══ -->
+<div class="texture-row">
+  <div class="texture-panel texture-1"><div class="texture-label">Woven Foundation</div></div>
+  <div class="texture-panel texture-2"><div class="texture-label">Grounded Warmth</div></div>
+  <div class="texture-panel texture-3"><div class="texture-label">Gulf Horizon</div></div>
+</div>
+
+<!-- ═══ 03 / TYPOGRAPHY ═══ -->
+<div class="section">
+  <div class="section-label">02 / Typography Pairing</div>
+  <div class="type-grid">
+    <div class="type-sample">
+      <h2>Prameela Nair<br>Collective</h2>
+      <div class="type-meta">Cormorant Garamond Medium / Headlines</div>
+    </div>
+    <div class="type-sample">
+      <p>How you make someone feel is what they never forget. Believe in getting the heart and the rest will follow. Success looks very different to each vertical or line of business within a system or organisation.</p>
+      <div class="type-body-meta">Outfit Light / Body Copy</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PNC FRAMEWORK ═══ -->
+<div class="framework-section">
+  <div class="framework-visual">
+    <svg width="220" height="220" viewBox="0 0 240 245" fill="none">
+      <circle cx="96" cy="85" r="48" stroke="#b5664f" stroke-width="1.8" fill="rgba(181,102,79,0.05)"/>
+      <circle cx="144" cy="85" r="48" stroke="#5b8a9a" stroke-width="1.8" fill="rgba(91,138,154,0.05)"/>
+      <circle cx="120" cy="127" r="48" stroke="#7a8c72" stroke-width="1.8" fill="rgba(122,140,114,0.05)"/>
+      <!-- Letters centered in each circle's unique lobe -->
+      <text x="72" y="74" font-family="'Cormorant Garamond', serif" font-size="26" font-weight="600" fill="#b5664f" text-anchor="middle">P</text>
+      <text x="168" y="74" font-family="'Cormorant Garamond', serif" font-size="26" font-weight="600" fill="#5b8a9a" text-anchor="middle">N</text>
+      <text x="120" y="154" font-family="'Cormorant Garamond', serif" font-size="26" font-weight="600" fill="#7a8c72" text-anchor="middle">C</text>
+      <!-- Labels outside circles -->
+      <text x="72" y="24" font-family="'Outfit', sans-serif" font-size="8" font-weight="400" fill="#b5664f" text-anchor="middle" letter-spacing="1.5" opacity="0.8">PERFORMANCE</text>
+      <text x="168" y="24" font-family="'Outfit', sans-serif" font-size="8" font-weight="400" fill="#5b8a9a" text-anchor="middle" letter-spacing="1.5" opacity="0.8">NETWORK</text>
+      <text x="120" y="192" font-family="'Outfit', sans-serif" font-size="8" font-weight="400" fill="#7a8c72" text-anchor="middle" letter-spacing="1.5" opacity="0.8">CREATIVE</text>
+      <!-- Center dot -->
+      <circle cx="120" cy="100" r="3.5" fill="#b5664f"/>
+    </svg>
+  </div>
+  <div class="framework-text">
+    <h3>The PNC Framework</h3>
+    <div class="framework-item">
+      <div class="letter" style="color: var(--terracotta);">P / Performance</div>
+      <div class="meaning">Data-driven growth strategy, paid media, measurement, and ROI accountability. The engine that turns brand equity into business results.</div>
+    </div>
+    <div class="framework-item">
+      <div class="letter" style="color: var(--gulf-blue);">N / Network</div>
+      <div class="meaning">The collective itself. Trusted specialists, each autonomous, brought together by shared standards and Prameela's orchestration.</div>
+    </div>
+    <div class="framework-item">
+      <div class="letter" style="color: var(--sage);">C / Creative</div>
+      <div class="meaning">Brand identity, content, storytelling, and experiential. The work that builds emotional connection and market differentiation.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 03 / PRIMARY MARK ═══ -->
+<div class="section">
+  <div class="section-label">03 / Primary Mark: The Three Rings</div>
+  <div class="logo-row">
+    <div class="logo-card light">
+      <svg width="240" height="240" viewBox="0 0 240 245" fill="none">
+        <circle cx="96" cy="85" r="48" stroke="#b5664f" stroke-width="1.8" fill="rgba(181,102,79,0.05)"/>
+        <circle cx="144" cy="85" r="48" stroke="#5b8a9a" stroke-width="1.8" fill="rgba(91,138,154,0.05)"/>
+        <circle cx="120" cy="127" r="48" stroke="#7a8c72" stroke-width="1.8" fill="rgba(122,140,114,0.05)"/>
+        <text x="72" y="74" font-family="'Cormorant Garamond', serif" font-size="26" font-weight="600" fill="#b5664f" text-anchor="middle">P</text>
+        <text x="168" y="74" font-family="'Cormorant Garamond', serif" font-size="26" font-weight="600" fill="#5b8a9a" text-anchor="middle">N</text>
+        <text x="120" y="154" font-family="'Cormorant Garamond', serif" font-size="26" font-weight="600" fill="#7a8c72" text-anchor="middle">C</text>
+        <text x="72" y="24" font-family="'Outfit', sans-serif" font-size="8" font-weight="400" fill="#b5664f" text-anchor="middle" letter-spacing="1.5" opacity="0.8">PERFORMANCE</text>
+        <text x="168" y="24" font-family="'Outfit', sans-serif" font-size="8" font-weight="400" fill="#5b8a9a" text-anchor="middle" letter-spacing="1.5" opacity="0.8">NETWORK</text>
+        <text x="120" y="192" font-family="'Outfit', sans-serif" font-size="8" font-weight="400" fill="#7a8c72" text-anchor="middle" letter-spacing="1.5" opacity="0.8">CREATIVE</text>
+        <circle cx="120" cy="100" r="3.5" fill="#b5664f"/>
+      </svg>
+    </div>
+    <div class="logo-card dark">
+      <svg width="240" height="240" viewBox="0 0 240 245" fill="none">
+        <circle cx="96" cy="85" r="48" stroke="#b5664f" stroke-width="1.8" fill="rgba(181,102,79,0.08)"/>
+        <circle cx="144" cy="85" r="48" stroke="#5b8a9a" stroke-width="1.8" fill="rgba(91,138,154,0.08)"/>
+        <circle cx="120" cy="127" r="48" stroke="#d4a090" stroke-width="1.8" fill="rgba(212,160,144,0.05)"/>
+        <text x="72" y="74" font-family="'Cormorant Garamond', serif" font-size="26" font-weight="600" fill="#b5664f" text-anchor="middle">P</text>
+        <text x="168" y="74" font-family="'Cormorant Garamond', serif" font-size="26" font-weight="600" fill="#5b8a9a" text-anchor="middle">N</text>
+        <text x="120" y="154" font-family="'Cormorant Garamond', serif" font-size="26" font-weight="600" fill="#d4a090" text-anchor="middle">C</text>
+        <text x="72" y="24" font-family="'Outfit', sans-serif" font-size="8" font-weight="400" fill="#b5664f" text-anchor="middle" letter-spacing="1.5" opacity="0.8">PERFORMANCE</text>
+        <text x="168" y="24" font-family="'Outfit', sans-serif" font-size="8" font-weight="400" fill="#5b8a9a" text-anchor="middle" letter-spacing="1.5" opacity="0.8">NETWORK</text>
+        <text x="120" y="192" font-family="'Outfit', sans-serif" font-size="8" font-weight="400" fill="#d4a090" text-anchor="middle" letter-spacing="1.5" opacity="0.8">CREATIVE</text>
+        <circle cx="120" cy="100" r="3.5" fill="#d4a090"/>
+      </svg>
+    </div>
+  </div>
+  <div class="logo-desc">
+    <h3>The Three Rings</h3>
+    <p>Three overlapping circles form a Venn structure. Each ring carries a dual meaning: P is both Prameela and Performance. N is both Nair and Network. C is both Collective and Creative. Prameela sits at the triple intersection where all three converge. The ring colors map to the UAE palette: terracotta (earth), gulf blue (water), sage (growth).</p>
+  </div>
+</div>
+
+<!-- ═══ 04 / ALTERNATE MARK ═══ -->
+<div class="section">
+  <div class="section-label">04 / Alternate Mark: The Orbital Ring</div>
+  <div class="logo-row">
+    <div class="logo-card light">
+      <svg width="180" height="180" viewBox="0 0 180 180" fill="none">
+        <!-- Outer circle split into 3 equal arcs of 120 degrees each -->
+        <!-- Points on circle r=60, center (90,90): top (90,30), bottom-right (141.96,120), bottom-left (38.04,120) -->
+        <!-- Arc 1: Terracotta, from top clockwise to bottom-right -->
+        <path d="M 90,30 A 60,60 0 0,1 141.96,120" stroke="#b5664f" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <!-- Arc 2: Gulf Blue, from bottom-right clockwise to bottom-left -->
+        <path d="M 141.96,120 A 60,60 0 0,1 38.04,120" stroke="#5b8a9a" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <!-- Arc 3: Sage, from bottom-left clockwise back to top -->
+        <path d="M 38.04,120 A 60,60 0 0,1 90,30" stroke="#7a8c72" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <!-- Accent dots at the three junction points -->
+        <circle cx="90" cy="30" r="3.5" fill="#b5664f"/>
+        <circle cx="141.96" cy="120" r="3.5" fill="#5b8a9a"/>
+        <circle cx="38.04" cy="120" r="3.5" fill="#7a8c72"/>
+        <!-- Fine inner circle -->
+        <circle cx="90" cy="90" r="36" stroke="#4a5259" stroke-width="0.5" fill="none" opacity="0.2"/>
+        <!-- Central monogram -->
+        <text x="90" y="98" font-family="'Cormorant Garamond', serif" font-size="28" font-weight="600" fill="#4a5259" text-anchor="middle" letter-spacing="5">PNC</text>
+      </svg>
+    </div>
+    <div class="logo-card dark">
+      <svg width="180" height="180" viewBox="0 0 180 180" fill="none">
+        <path d="M 90,30 A 60,60 0 0,1 141.96,120" stroke="#b5664f" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M 141.96,120 A 60,60 0 0,1 38.04,120" stroke="#5b8a9a" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M 38.04,120 A 60,60 0 0,1 90,30" stroke="#7a8c72" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <circle cx="90" cy="30" r="3.5" fill="#b5664f"/>
+        <circle cx="141.96" cy="120" r="3.5" fill="#5b8a9a"/>
+        <circle cx="38.04" cy="120" r="3.5" fill="#7a8c72"/>
+        <circle cx="90" cy="90" r="36" stroke="#d4a090" stroke-width="0.5" fill="none" opacity="0.15"/>
+        <text x="90" y="98" font-family="'Cormorant Garamond', serif" font-size="28" font-weight="600" fill="#f5f1eb" text-anchor="middle" letter-spacing="5">PNC</text>
+      </svg>
+    </div>
+  </div>
+  <div class="logo-desc">
+    <h3>The Orbital Ring</h3>
+    <p>Three smooth arcs in terracotta, gulf blue, and sage each sweep one-third of the outer circle, meeting at accent dots that mark the transition points. Three disciplines orbiting a central point: the PNC monogram within a fine inner circle. A system in motion, not static. Three forces, three colors, one continuous path.</p>
+  </div>
+</div>
+
+<!-- ═══ 05 / LOCKUP ═══ -->
+<div class="section" style="padding: 0;">
+  <div style="padding: 40px 60px 0;"><div class="section-label">05 / Lockup System</div></div>
+  <div class="showcase-full light">
+    <div class="lockup">
+      <svg width="80" height="74" viewBox="0 0 240 220" fill="none">
+        <circle cx="96" cy="78" r="48" stroke="#b5664f" stroke-width="2.5" fill="rgba(181,102,79,0.05)"/>
+        <circle cx="144" cy="78" r="48" stroke="#5b8a9a" stroke-width="2.5" fill="rgba(91,138,154,0.05)"/>
+        <circle cx="120" cy="120" r="48" stroke="#7a8c72" stroke-width="2.5" fill="rgba(122,140,114,0.05)"/>
+        <circle cx="120" cy="96" r="3.5" fill="#b5664f"/>
+      </svg>
+      <div class="lockup-divider" style="background: var(--terracotta-light);"></div>
+      <div class="lockup-text">
+        <div class="name" style="color: var(--gunmetal-deep);">Prameela Nair</div>
+        <div class="descriptor" style="color: var(--terracotta);">Collective</div>
+      </div>
+    </div>
+  </div>
+  <div class="showcase-full dark">
+    <div class="lockup">
+      <svg width="80" height="74" viewBox="0 0 240 220" fill="none">
+        <circle cx="96" cy="78" r="48" stroke="#b5664f" stroke-width="2.5" fill="rgba(181,102,79,0.08)"/>
+        <circle cx="144" cy="78" r="48" stroke="#5b8a9a" stroke-width="2.5" fill="rgba(91,138,154,0.08)"/>
+        <circle cx="120" cy="120" r="48" stroke="#d4a090" stroke-width="2.5" fill="rgba(212,160,144,0.05)"/>
+        <circle cx="120" cy="96" r="3.5" fill="#d4a090"/>
+      </svg>
+      <div class="lockup-divider" style="background: rgba(212,160,144,0.3);"></div>
+      <div class="lockup-text">
+        <div class="name" style="color: var(--linen);">Prameela Nair</div>
+        <div class="descriptor" style="color: var(--terracotta-light);">Collective</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 06 / SCALE ═══ -->
+<div class="section">
+  <div class="section-label">06 / Scale &amp; Application</div>
+  <div class="marks-grid">
+    <div class="mark-cell" style="background: var(--linen);"><svg width="100" height="92" viewBox="0 0 240 220" fill="none"><circle cx="96" cy="78" r="48" stroke="#b5664f" stroke-width="2.5" fill="rgba(181,102,79,0.05)"/><circle cx="144" cy="78" r="48" stroke="#5b8a9a" stroke-width="2.5" fill="rgba(91,138,154,0.05)"/><circle cx="120" cy="120" r="48" stroke="#7a8c72" stroke-width="2.5" fill="rgba(122,140,114,0.05)"/><circle cx="120" cy="96" r="3.5" fill="#b5664f"/></svg></div>
+    <div class="mark-cell" style="background: var(--gunmetal-deep);"><svg width="64" height="59" viewBox="0 0 240 220" fill="none"><circle cx="96" cy="78" r="48" stroke="#b5664f" stroke-width="3" fill="rgba(181,102,79,0.08)"/><circle cx="144" cy="78" r="48" stroke="#5b8a9a" stroke-width="3" fill="rgba(91,138,154,0.08)"/><circle cx="120" cy="120" r="48" stroke="#d4a090" stroke-width="3" fill="rgba(212,160,144,0.05)"/><circle cx="120" cy="96" r="4" fill="#d4a090"/></svg></div>
+    <div class="mark-cell" style="background: var(--terracotta);"><svg width="40" height="37" viewBox="0 0 240 220" fill="none"><circle cx="96" cy="78" r="48" stroke="#4a5259" stroke-width="4.5" fill="rgba(74,82,89,0.1)"/><circle cx="144" cy="78" r="48" stroke="#f5f1eb" stroke-width="4.5" fill="rgba(245,241,235,0.06)"/><circle cx="120" cy="120" r="48" stroke="#4a5259" stroke-width="4.5" fill="rgba(74,82,89,0.06)"/><circle cx="120" cy="96" r="5" fill="#f5f1eb"/></svg></div>
+    <div class="mark-cell" style="background: var(--linen);"><svg width="100" height="100" viewBox="0 0 180 180" fill="none"><path d="M 90,30 A 60,60 0 0,1 141.96,120" stroke="#b5664f" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M 141.96,120 A 60,60 0 0,1 38.04,120" stroke="#5b8a9a" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M 38.04,120 A 60,60 0 0,1 90,30" stroke="#7a8c72" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="90" cy="30" r="3.5" fill="#b5664f"/><circle cx="141.96" cy="120" r="3.5" fill="#5b8a9a"/><circle cx="38.04" cy="120" r="3.5" fill="#7a8c72"/><circle cx="90" cy="90" r="36" stroke="#4a5259" stroke-width="0.5" fill="none" opacity="0.2"/><text x="90" y="98" font-family="'Cormorant Garamond', serif" font-size="28" font-weight="600" fill="#4a5259" text-anchor="middle" letter-spacing="5">PNC</text></svg></div>
+    <div class="mark-cell" style="background: var(--gunmetal-deep);"><svg width="64" height="64" viewBox="0 0 180 180" fill="none"><path d="M 90,30 A 60,60 0 0,1 141.96,120" stroke="#b5664f" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M 141.96,120 A 60,60 0 0,1 38.04,120" stroke="#5b8a9a" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M 38.04,120 A 60,60 0 0,1 90,30" stroke="#7a8c72" stroke-width="4" fill="none" stroke-linecap="round"/><circle cx="90" cy="30" r="4" fill="#b5664f"/><circle cx="141.96" cy="120" r="4" fill="#5b8a9a"/><circle cx="38.04" cy="120" r="4" fill="#7a8c72"/><text x="90" y="98" font-family="'Cormorant Garamond', serif" font-size="28" font-weight="600" fill="#f5f1eb" text-anchor="middle" letter-spacing="5">PNC</text></svg></div>
+    <div class="mark-cell" style="background: var(--gulf-blue);"><svg width="40" height="40" viewBox="0 0 180 180" fill="none"><path d="M 90,30 A 60,60 0 0,1 141.96,120" stroke="#f5f1eb" stroke-width="5" fill="none"/><path d="M 141.96,120 A 60,60 0 0,1 38.04,120" stroke="#f5f1eb" stroke-width="5" fill="none"/><path d="M 38.04,120 A 60,60 0 0,1 90,30" stroke="#f5f1eb" stroke-width="5" fill="none"/><text x="90" y="100" font-family="'Cormorant Garamond', serif" font-size="36" font-weight="600" fill="#f5f1eb" text-anchor="middle" letter-spacing="4">PNC</text></svg></div>
+  </div>
+</div>
+
+<!-- ═══ 07 / RATIONALE ═══ -->
+<div class="section">
+  <div class="section-label">07 / Design Rationale</div>
+  <div class="rationale">
+    <h3>Why This Direction</h3>
+    <p>This direction centers the word that makes the brand name work: Collective. The palette is drawn directly from the UAE landscape: sand dunes, terracotta heritage, green oases, the Arabian Gulf, and the gunmetal skyline at dusk. These are not borrowed colors. They belong to the place where Prameela built her career and where her clients operate.</p>
+    <p>Replacing black with gunmetal softens the palette without losing authority. The addition of gulf blue brings depth and a connection to water, commerce, and the coastal identity of the Emirates. Together, the five primary colors tell a story of place that resonates with any UAE-based client who walks into the room.</p>
+    <div class="quote">"Nobody wins alone. An end goal has to be understood and cascaded. If not, it fails."</div>
+    <p>The Cormorant Garamond typeface brings editorial elegance that suits a woman of her stature, while Outfit's clean geometry keeps everything modern and readable. The pairing says: experienced enough to appreciate the classics, sharp enough to stay current.</p>
+    <p>The PNC framework gives the brand name strategic depth. P, N, C are not just initials. They are the three pillars of the offering: Performance (data-driven growth), Network (the trusted collective model), and Creative (brand and storytelling). The Venn diagram makes this tangible. Every client engagement sits at the intersection of these three disciplines, and Prameela is the center point who holds the whole together.</p>
+    <div style="margin-top: 36px;">
+      <span class="tag">UAE Rooted</span>
+      <span class="tag">Partnership Model</span>
+      <span class="tag">Grounded Maturity</span>
+      <span class="tag">Operational Excellence</span>
+      <span class="tag">Trusted Network</span>
+      <span class="tag">Dubai Market</span>
+    </div>
+  </div>
+</div>
+
+<div class="cde-footer">
+  <div class="cde-footer-left">Confidential / Client Use Only</div>
+  <div class="cde-footer-center">Core <span>Digital</span> Expansion</div>
+  <div class="cde-footer-right">coredigitalexpansion.com</div>
+</div>
+
+</body>
+</html>

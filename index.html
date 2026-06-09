@@ -247,8 +247,9 @@ section {
   font-weight: 400;
   line-height: 1.15;
   color: var(--white);
-  max-width: 900px;
-  margin-bottom: 3rem;
+  max-width: 1100px;
+  margin: 0 auto 3rem;
+  text-align: center;
   text-shadow: 0 2px 20px rgba(0,0,0,0.25), 0 1px 3px rgba(0,0,0,0.15);
 }
 .hero-quote em {
@@ -1332,14 +1333,14 @@ section {
   .nav-links { display: none; }
 }
 
-/* ── NEXT SECTION BUTTON ── */
+/* ── NEXT SECTION BUTTON (bottom-centre) ── */
 .next-btn {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
+  bottom: 1.75rem;
+  left: 50%;
   z-index: 90;
-  width: 48px;
-  height: 48px;
+  width: 56px;
+  height: 56px;
   border: none;
   border-radius: 50%;
   background: var(--gunmetal);
@@ -1348,10 +1349,11 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-  transition: background 0.3s ease, transform 0.3s ease, opacity 0.4s ease;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+  transition: background 0.3s ease, transform 0.3s ease, opacity 0.4s ease, box-shadow 0.3s ease;
   opacity: 0;
   pointer-events: none;
+  transform: translateX(-50%);
 }
 .next-btn.show {
   opacity: 1;
@@ -1359,41 +1361,43 @@ section {
 }
 .next-btn:hover {
   background: var(--terracotta);
-  transform: scale(1.1);
+  transform: translateX(-50%) scale(1.1);
+  box-shadow: 0 8px 32px rgba(181,102,79,0.35);
 }
 .next-btn.at-end {
-  transform: rotate(180deg);
+  transform: translateX(-50%) rotate(180deg);
 }
 .next-btn.at-end:hover {
-  transform: rotate(180deg) scale(1.1);
+  transform: translateX(-50%) rotate(180deg) scale(1.1);
 }
 .next-btn svg {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   fill: none;
   stroke: currentColor;
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
-/* Section counter pill */
+/* Section counter sits above the button */
 .next-btn-counter {
   position: fixed;
-  bottom: 2.1rem;
-  right: 4.2rem;
+  bottom: 5.4rem;
+  left: 50%;
   z-index: 90;
   font-family: var(--font-body);
-  font-size: 0.6rem;
+  font-size: 0.65rem;
   font-weight: 500;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.18em;
   color: var(--gunmetal);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s ease;
-  text-align: right;
-  line-height: 48px;
+  text-align: center;
+  line-height: 1;
+  transform: translateX(-50%);
 }
-.next-btn-counter.show { opacity: 0.4; }
+.next-btn-counter.show { opacity: 0.55; }
 /* On dark sections, flip to light colors */
 .next-btn.on-dark { background: rgba(245,241,235,0.15); backdrop-filter: blur(10px); }
 .next-btn.on-dark:hover { background: var(--terracotta); }
@@ -1513,8 +1517,18 @@ section {
   overflow: visible;
 }
 .emph-underline line {
-  stroke-width: 1.5;
+  stroke-width: 1.8;
   vector-effect: non-scaling-stroke;
+}
+/* Architectural underlining motion: left tick, line draws across, right tick */
+.emph-underline line:nth-child(1) {
+  transition: stroke-dashoffset 0.35s cubic-bezier(0.65, 0, 0.35, 1) 1.3s !important;
+}
+.emph-underline line:nth-child(2) {
+  transition: stroke-dashoffset 1.0s cubic-bezier(0.65, 0, 0.35, 1) 1.65s !important;
+}
+.emph-underline line:nth-child(3) {
+  transition: stroke-dashoffset 0.35s cubic-bezier(0.65, 0, 0.35, 1) 2.65s !important;
 }
 
 /* CTA UAE skyline */
@@ -1580,9 +1594,6 @@ section {
       <circle cx="100" cy="100" r="65" fill="#B5664F" opacity="0.35"/>
       <circle cx="155" cy="100" r="65" fill="#5B8A9A" opacity="0.35"/>
       <circle cx="127" cy="155" r="65" fill="#7A8C72" opacity="0.35"/>
-      <text x="75" y="95" font-family="Outfit" font-size="14" font-weight="600" fill="#F5F1EB" opacity="0.8">P</text>
-      <text x="168" y="95" font-family="Outfit" font-size="14" font-weight="600" fill="#F5F1EB" opacity="0.8">N</text>
-      <text x="122" y="185" font-family="Outfit" font-size="14" font-weight="600" fill="#F5F1EB" opacity="0.8">C</text>
     </svg>
   </div>
   <div class="hero-label reveal d1">Prameela Nair Collective</div>

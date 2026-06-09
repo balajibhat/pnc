@@ -1560,6 +1560,14 @@ section {
 .cta-skyline circle {
   transition-duration: 3.4s !important;
 }
+/* Coconuts on the palm + helipad disc on Burj Al Arab: filled dots */
+.cta-skyline ellipse {
+  fill: currentColor;
+  stroke: none;
+  opacity: 0;
+  transition: opacity 0.6s ease 2.6s;
+}
+.cta-skyline.drawn ellipse { opacity: 1; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -2178,115 +2186,53 @@ section {
     <h2 class="cta-headline reveal d2">NARRATIVE.</h2>
     <div class="cta-line reveal d3"></div>
     <p class="cta-mantra reveal d4">UAE at Heart. World on Our Horizon.</p>
-    <svg class="cta-skyline draw-svg reveal d5" viewBox="0 0 1200 380" aria-hidden="true">
-      <!-- LEFT ANTENNA -->
-      <line x1="60" y1="300" x2="60" y2="200"/>
-      <circle cx="60" cy="195" r="3.5"/>
+    <svg class="cta-skyline draw-svg reveal d5" viewBox="0 0 900 340" aria-hidden="true">
+      <!-- GROUND LINE -->
+      <line x1="40" y1="308" x2="860" y2="308"/>
 
-      <!-- LOW-RISE STEPPED LEFT CLUSTER -->
-      <polyline points="100,300 100,260 120,260 120,240 140,240 140,255 160,255 160,225 180,225 180,300"/>
-      <line x1="105" y1="280" x2="115" y2="280"/>
-      <line x1="125" y1="270" x2="135" y2="270"/>
-      <line x1="145" y1="278" x2="155" y2="278"/>
-      <line x1="165" y1="250" x2="175" y2="250"/>
+      <!-- PALM TREE (left) -->
+      <line x1="170" y1="308" x2="170" y2="195"/>
+      <path d="M 170 195 Q 142 187 118 192"/>
+      <path d="M 170 195 Q 198 187 222 192"/>
+      <path d="M 170 195 Q 152 172 132 162"/>
+      <path d="M 170 195 Q 188 172 208 162"/>
+      <path d="M 170 195 Q 162 162 152 144"/>
+      <path d="M 170 195 Q 178 162 188 144"/>
+      <line x1="170" y1="195" x2="170" y2="158"/>
+      <!-- coconut cluster -->
+      <ellipse cx="165" cy="200" rx="3" ry="3"/>
+      <ellipse cx="175" cy="200" rx="3" ry="3"/>
 
-      <!-- SLIM TOWER WITH ANTENNA -->
-      <rect x="200" y="155" width="24" height="145"/>
-      <line x1="212" y1="155" x2="212" y2="105"/>
-      <line x1="200" y1="180" x2="224" y2="180"/>
-      <line x1="200" y1="200" x2="224" y2="200"/>
-      <line x1="200" y1="220" x2="224" y2="220"/>
-      <line x1="200" y1="240" x2="224" y2="240"/>
-      <line x1="200" y1="260" x2="224" y2="260"/>
-      <line x1="200" y1="280" x2="224" y2="280"/>
+      <!-- BURJ KHALIFA (center, tall stepped tower with spire) -->
+      <path d="M 385 308 L 385 260 L 392 260 L 392 230 L 388 230 L 388 200
+               L 394 200 L 394 168 L 390 168 L 390 138 L 396 138 L 396 108
+               L 392 108 L 392 80 L 397 80 L 397 56 L 395 56 L 395 36
+               L 398 36 L 398 20 L 400 12 L 402 20 L 402 36 L 405 36 L 405 56
+               L 403 56 L 403 80 L 408 80 L 408 108 L 404 108 L 404 138
+               L 410 138 L 410 168 L 406 168 L 406 200 L 412 200 L 412 230
+               L 408 230 L 408 260 L 415 260 L 415 308 Z"/>
+      <line x1="400" y1="12" x2="400" y2="2"/>
+      <!-- horizontal band details -->
+      <line x1="388" y1="245" x2="412" y2="245"/>
+      <line x1="390" y1="215" x2="410" y2="215"/>
+      <line x1="392" y1="184" x2="408" y2="184"/>
+      <line x1="394" y1="153" x2="406" y2="153"/>
+      <line x1="395" y1="123" x2="405" y2="123"/>
+      <line x1="396" y1="94" x2="404" y2="94"/>
+      <line x1="397" y1="68" x2="403" y2="68"/>
+      <line x1="398" y1="46" x2="402" y2="46"/>
 
-      <!-- CAYAN-STYLE TWISTED TOWER (cigar/leaf shape) -->
-      <path d="M 250 300 Q 245 250 252 200 Q 260 150 275 130 Q 290 150 298 200 Q 305 250 300 300 Z"/>
-      <line x1="252" y1="220" x2="298" y2="220"/>
-      <line x1="252" y1="245" x2="298" y2="245"/>
-      <line x1="252" y1="270" x2="298" y2="270"/>
-
-      <!-- MID-RISE WITH WINDOWS -->
-      <rect x="325" y="170" width="50" height="130"/>
-      <line x1="325" y1="195" x2="375" y2="195"/>
-      <line x1="325" y1="215" x2="375" y2="215"/>
-      <line x1="325" y1="235" x2="375" y2="235"/>
-      <line x1="325" y1="255" x2="375" y2="255"/>
-      <line x1="325" y1="275" x2="375" y2="275"/>
-      <line x1="350" y1="170" x2="350" y2="300"/>
-
-      <!-- BURJ KHALIFA (stepped tower with spire) -->
-      <path d="M 405 300 L 405 255 L 415 255 L 415 240 L 408 240 L 408 215 L 418 215 L 418 195 L 412 195 L 412 165 L 420 165 L 420 135 L 415 135 L 415 110 L 422 110 L 422 80 L 418 80 L 418 55 L 423 55 L 423 30 L 425 22 L 428 30 L 428 55 L 433 55 L 433 80 L 429 80 L 429 110 L 436 110 L 436 135 L 431 135 L 431 165 L 439 165 L 439 195 L 433 195 L 433 215 L 443 215 L 443 240 L 436 240 L 436 255 L 446 255 L 446 300 Z"/>
-      <line x1="425" y1="22" x2="425" y2="5"/>
-      <!-- Burj horizontal detail bands -->
-      <line x1="408" y1="225" x2="443" y2="225"/>
-      <line x1="412" y1="180" x2="439" y2="180"/>
-      <line x1="415" y1="150" x2="436" y2="150"/>
-      <line x1="418" y1="120" x2="433" y2="120"/>
-
-      <!-- ALMAS-STYLE CURVED TOWER WITH STRIPES -->
-      <path d="M 480 300 Q 478 230 495 175 Q 510 120 525 175 Q 542 230 540 300 Z"/>
-      <line x1="486" y1="205" x2="534" y2="205"/>
-      <line x1="484" y1="225" x2="536" y2="225"/>
-      <line x1="482" y1="245" x2="538" y2="245"/>
-      <line x1="481" y1="265" x2="539" y2="265"/>
-      <line x1="480" y1="285" x2="540" y2="285"/>
-
-      <!-- DUBAI OPERA / DHOW SHAPE -->
-      <path d="M 575 300 Q 590 300 615 270 Q 645 220 675 270 Q 700 300 715 300"/>
-      <path d="M 575 300 L 715 300"/>
-      <!-- sail-mast strokes -->
-      <line x1="605" y1="293" x2="625" y2="262"/>
-      <line x1="618" y1="296" x2="645" y2="245"/>
-      <line x1="635" y1="298" x2="660" y2="240"/>
-      <line x1="655" y1="298" x2="672" y2="255"/>
-      <line x1="675" y1="294" x2="690" y2="275"/>
-
-      <!-- TWO MID-RISE BUILDINGS RIGHT OF OPERA -->
-      <rect x="740" y="195" width="42" height="105"/>
-      <line x1="740" y1="215" x2="782" y2="215"/>
-      <line x1="740" y1="235" x2="782" y2="235"/>
-      <line x1="740" y1="255" x2="782" y2="255"/>
-      <line x1="740" y1="275" x2="782" y2="275"/>
-      <line x1="761" y1="195" x2="761" y2="300"/>
-
-      <rect x="795" y="215" width="38" height="85"/>
-      <line x1="795" y1="235" x2="833" y2="235"/>
-      <line x1="795" y1="255" x2="833" y2="255"/>
-      <line x1="795" y1="275" x2="833" y2="275"/>
-      <line x1="814" y1="215" x2="814" y2="300"/>
-
-      <!-- BURJ AL ARAB (sail) -->
-      <path d="M 870 300 L 905 120 Q 925 108 965 300 Z"/>
-      <line x1="905" y1="120" x2="908" y2="92"/>
-      <!-- diagonal sail texture lines -->
-      <line x1="913" y1="160" x2="945" y2="180"/>
-      <line x1="909" y1="190" x2="950" y2="205"/>
-      <line x1="905" y1="220" x2="955" y2="230"/>
-      <line x1="900" y1="250" x2="958" y2="255"/>
-      <line x1="895" y1="280" x2="960" y2="280"/>
-
-      <!-- RIGHT-SIDE LOW BUILDINGS -->
-      <polyline points="995,300 995,260 1015,260 1015,275 1035,275 1035,250 1055,250 1055,300"/>
-      <line x1="1000" y1="280" x2="1010" y2="280"/>
-      <line x1="1020" y1="270" x2="1030" y2="270"/>
-
-      <!-- RIGHT ANTENNAS -->
-      <line x1="1095" y1="300" x2="1095" y2="210"/>
-      <circle cx="1095" cy="205" r="3.5"/>
-      <line x1="1135" y1="300" x2="1135" y2="235"/>
-      <circle cx="1135" cy="230" r="3.5"/>
-
-      <!-- BASELINE -->
-      <line x1="40" y1="300" x2="1160" y2="300"/>
-
-      <!-- WAVES (water) -->
-      <path d="M 60 325 Q 80 318 100 325 Q 120 332 140 325 Q 160 318 180 325 Q 200 332 220 325 Q 240 318 260 325"/>
-      <path d="M 320 325 Q 340 318 360 325 Q 380 332 400 325 Q 420 318 440 325"/>
-      <path d="M 480 325 Q 500 318 520 325 Q 540 332 560 325 Q 580 318 600 325"/>
-      <path d="M 640 325 Q 660 318 680 325 Q 700 332 720 325 Q 740 318 760 325"/>
-      <path d="M 800 325 Q 820 318 840 325 Q 860 332 880 325 Q 900 318 920 325"/>
-      <path d="M 960 325 Q 980 318 1000 325 Q 1020 332 1040 325 Q 1060 318 1080 325 Q 1100 332 1120 325"/>
+      <!-- BURJ AL ARAB (right, sail shape) -->
+      <path d="M 620 308 L 658 158 Q 678 148 712 308 Z"/>
+      <!-- mast antenna -->
+      <line x1="658" y1="158" x2="661" y2="128"/>
+      <!-- diagonal sail texture (the famous Teflon fabric panels) -->
+      <line x1="667" y1="195" x2="697" y2="218"/>
+      <line x1="663" y1="225" x2="701" y2="242"/>
+      <line x1="659" y1="255" x2="704" y2="265"/>
+      <line x1="655" y1="284" x2="708" y2="288"/>
+      <!-- helipad -->
+      <ellipse cx="680" cy="190" rx="6" ry="2"/>
     </svg>
     <div class="cta-contact reveal d6">
       <p><a href="mailto:connect@nairativebyprameela.com">connect@nairativebyprameela.com</a></p>

@@ -367,6 +367,83 @@ section {
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 }
+.pillars-footer {
+  margin-top: 3.5rem;
+  padding: 1.5rem 2rem;
+  border-left: 3px solid var(--terracotta);
+  background: rgba(255, 255, 255, 0.5);
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--gunmetal);
+}
+
+/* ── BRAND COHERENCE IMPERATIVE ── */
+.coherence { background: var(--white); }
+.coherence-label {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-bottom: 1.25rem;
+}
+.coherence-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 3.2vw, 2.8rem);
+  font-weight: 500;
+  line-height: 1.2;
+  max-width: 1100px;
+  margin-bottom: 1.5rem;
+}
+.coherence-sub {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.75;
+  opacity: 0.7;
+  max-width: 900px;
+  margin-bottom: 4rem;
+}
+.coherence-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+.coherence-item {
+  padding: 0 2.25rem;
+  border-left: 1px solid rgba(181, 102, 79, 0.35);
+}
+.coherence-item:first-child { border-left: none; padding-left: 0; }
+.coherence-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 1.9vw, 1.7rem);
+  font-weight: 600;
+  margin-bottom: 1.1rem;
+  color: var(--gunmetal);
+  line-height: 1.2;
+}
+.coherence-text {
+  font-size: 0.92rem;
+  font-weight: 300;
+  line-height: 1.75;
+  opacity: 0.7;
+}
+@media (max-width: 768px) {
+  .coherence-grid { grid-template-columns: 1fr; }
+  .coherence-item {
+    border-left: none;
+    padding-left: 0;
+    padding-right: 0;
+    border-top: 1px solid rgba(181, 102, 79, 0.35);
+    padding-top: 2rem;
+    margin-top: 2rem;
+  }
+  .coherence-item:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+}
 .pillar {
   position: relative;
   padding-top: 2rem;
@@ -445,6 +522,27 @@ section {
 .team-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 20px 60px rgba(74, 82, 89, 0.08);
+}
+.team-card-photo {
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 1.75rem;
+  border: 3px solid var(--terracotta);
+  position: relative;
+  background: var(--linen);
+}
+.team-card-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.team-card:nth-child(2) .team-card-photo { border-color: var(--gulf-blue); }
+.team-duo.alt .team-card:nth-child(3) .team-card-photo { border-color: var(--sage); }
+@media (max-width: 768px) {
+  .team-card-photo { width: 96px; height: 96px; margin-bottom: 1.25rem; }
 }
 .team-card-role {
   font-family: var(--font-body);
@@ -596,33 +694,65 @@ section {
 }
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
 }
 .service-card {
-  padding: 2rem;
+  padding: 2.25rem 1.75rem;
   border-top: 2px solid transparent;
+  background: var(--white);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: default;
 }
 .service-card:hover {
-  background: var(--white);
   transform: translateY(-4px);
   box-shadow: 0 20px 60px rgba(74, 82, 89, 0.08);
 }
-.service-card:nth-child(odd) { border-top-color: var(--terracotta); }
-.service-card:nth-child(even) { border-top-color: var(--gulf-blue); }
+.service-card:nth-child(1) { border-top-color: var(--terracotta); }
+.service-card:nth-child(2) { border-top-color: var(--gulf-blue); }
+.service-card:nth-child(3) { border-top-color: var(--sage); }
+.service-card:nth-child(4) { border-top-color: var(--clay); }
 .service-name {
   font-family: var(--font-display);
-  font-size: 2rem;
+  font-size: clamp(1.4rem, 1.8vw, 1.7rem);
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.15;
 }
-.service-desc {
-  font-size: 0.85rem;
-  font-weight: 300;
+.service-bullets {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.service-bullet {
+  font-size: 0.86rem;
+  font-weight: 400;
+  line-height: 1.45;
+  padding-left: 0.9rem;
+  position: relative;
+  opacity: 0.78;
+}
+.service-bullet::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--terracotta);
   opacity: 0.6;
-  line-height: 1.6;
+}
+.service-card:nth-child(2) .service-bullet::before { background: var(--gulf-blue); }
+.service-card:nth-child(3) .service-bullet::before { background: var(--sage); }
+.service-card:nth-child(4) .service-bullet::before { background: var(--clay); }
+@media (max-width: 1100px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+}
+@media (max-width: 640px) {
+  .services-grid { grid-template-columns: 1fr; }
 }
 
 /* ── PROCESS (PNC OS) ── */
@@ -736,12 +866,139 @@ section {
   font-family: var(--font-display);
   font-size: clamp(2.5rem, 4vw, 3.5rem);
   font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+.work-sub {
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 1.6vw, 1.4rem);
+  font-weight: 400;
+  font-style: italic;
+  opacity: 0.7;
+  max-width: 900px;
+  margin-bottom: 3.5rem;
+  line-height: 1.4;
+}
+.work-feature {
+  position: relative;
+  padding: 3rem 2.75rem;
+  background: var(--white);
+  border-top: 3px solid var(--terracotta);
+  box-shadow: 0 30px 80px rgba(74, 82, 89, 0.06);
+  margin-bottom: 4.5rem;
+}
+.work-feature-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding-bottom: 2rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(74, 82, 89, 0.1);
+}
+.work-feature-brand {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+.work-feature-sector {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gulf-blue);
+}
+.work-phases {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.25rem;
   margin-bottom: 3rem;
+}
+.work-phase {
+  position: relative;
+  padding-left: 1.5rem;
+  border-left: 2px solid;
+}
+.work-phase:nth-child(1) { border-left-color: var(--terracotta); }
+.work-phase:nth-child(2) { border-left-color: var(--gulf-blue); }
+.work-phase:nth-child(3) { border-left-color: var(--sage); }
+.work-phase-num {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--gunmetal);
+  opacity: 0.4;
+  margin-bottom: 0.5rem;
+}
+.work-phase-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 1.8vw, 1.6rem);
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  line-height: 1.15;
+}
+.work-phase-period {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--terracotta);
+  margin-bottom: 0.9rem;
+  font-style: italic;
+}
+.work-phase-text {
+  font-size: 0.88rem;
+  font-weight: 300;
+  line-height: 1.65;
+  opacity: 0.75;
+}
+.work-supporting {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(74, 82, 89, 0.1);
+}
+.work-support-block {
+  position: relative;
+}
+.work-support-label {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-bottom: 0.75rem;
+}
+.work-support-text {
+  font-size: 0.88rem;
+  font-weight: 300;
+  line-height: 1.7;
+  opacity: 0.75;
+}
+.work-others-label {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gunmetal);
+  opacity: 0.5;
+  margin-bottom: 1.5rem;
 }
 .work-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+@media (max-width: 900px) {
+  .work-phases { grid-template-columns: 1fr; gap: 1.75rem; }
+  .work-supporting { grid-template-columns: 1fr; gap: 1.75rem; }
+  .work-feature { padding: 2rem 1.5rem; }
 }
 .work-card {
   padding: 2rem;
@@ -784,6 +1041,81 @@ section {
   font-weight: 300;
   line-height: 1.6;
   opacity: 0.6;
+}
+
+/* ── AI PARTNERSHIP (Chad AI) ── */
+.ai-partnership {
+  background: var(--gunmetal);
+  color: var(--linen);
+  position: relative;
+}
+.ai-accent {
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: var(--terracotta);
+}
+.ai-label {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--clay);
+  margin-bottom: 1.25rem;
+}
+.ai-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 3.2vw, 2.8rem);
+  font-weight: 500;
+  line-height: 1.2;
+  max-width: 1100px;
+  margin-bottom: 1.5rem;
+  color: var(--white);
+}
+.ai-sub {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.75;
+  opacity: 0.8;
+  max-width: 950px;
+  margin-bottom: 3.5rem;
+  color: var(--sand);
+}
+.ai-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+.ai-card {
+  padding: 2.25rem 2rem;
+  background: rgba(255, 255, 255, 0.04);
+  border-top: 2px solid var(--terracotta);
+  transition: background 0.4s ease, transform 0.4s ease;
+}
+.ai-card:nth-child(2) { border-top-color: var(--gulf-blue); }
+.ai-card:nth-child(3) { border-top-color: var(--sage); }
+.ai-card:hover {
+  background: rgba(255, 255, 255, 0.07);
+  transform: translateY(-4px);
+}
+.ai-card-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 1.9vw, 1.6rem);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--white);
+  line-height: 1.15;
+}
+.ai-card-text {
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--linen);
+  opacity: 0.82;
+}
+@media (max-width: 900px) {
+  .ai-grid { grid-template-columns: 1fr; gap: 1.5rem; }
 }
 
 /* ── WHY ── */
@@ -923,6 +1255,16 @@ section {
   font-weight: 600;
   color: var(--terracotta);
   margin-bottom: 2rem;
+}
+.cta-mantra {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.5rem);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--terracotta);
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.01em;
+  line-height: 1.25;
 }
 .cta-line {
   width: 120px; height: 2px;
@@ -1146,28 +1488,52 @@ section {
   </div>
 </section>
 
-<!-- Pillars -->
+<!-- Pillars / EMP Model -->
 <section class="pillars">
   <div class="section-inner">
-    <p class="pillars-header reveal">What Narrative Intelligence looks like in practice.</p>
+    <p class="pillars-header reveal">Enterprise marketing teams are trapped in execution volume. The Extended Marketing Partner (EMP) model provides immediate senior capability to de-bottleneck decisions and restore strategic focus.</p>
     <div class="pillars-grid">
       <div class="pillar reveal d1">
         <div class="pillar-bar"></div>
-        <h3 class="pillar-title">Capital.</h3>
-        <div class="pillar-label">Financial Rigour</div>
-        <p class="pillar-desc">Every message we build is aligned with your financial strategy, investor narrative, and growth priorities. Brand isn't a cost centre. It's a capital multiplier.</p>
+        <h3 class="pillar-title">Extend.</h3>
+        <div class="pillar-label">Senior Extension</div>
+        <p class="pillar-desc">We embed within your team to de-bottleneck strategic decisions and drive alignment. Immediate senior capability with hands-on execution.</p>
       </div>
       <div class="pillar reveal d2">
         <div class="pillar-bar"></div>
-        <h3 class="pillar-title">Story.</h3>
-        <div class="pillar-label">Narrative Craft</div>
-        <p class="pillar-desc">We design the voice, the architecture, and the system that makes your brand coherent across every touchpoint. One story. Told with precision.</p>
+        <h3 class="pillar-title">Operate.</h3>
+        <div class="pillar-label">Operational Excellence</div>
+        <p class="pillar-desc">We optimise marketing functions for performance and scale. Faster, governed go-to-market cycles with consistent quality output.</p>
       </div>
       <div class="pillar reveal d3">
         <div class="pillar-bar"></div>
-        <h3 class="pillar-title">Scale.</h3>
-        <div class="pillar-label">Execution Power</div>
-        <p class="pillar-desc">We don't hand over a strategy and leave. We train the team, run the campaigns, and stay until it works. Knowledge stays inside your organisation.</p>
+        <h3 class="pillar-title">Unblock.</h3>
+        <div class="pillar-label">Strategic De-bottlenecking</div>
+        <p class="pillar-desc">We drive high-level involvement when teams are stuck in execution volume. Restored focus on long-term brand and reputation.</p>
+      </div>
+    </div>
+    <p class="pillars-footer reveal">From activity-based marketing to commercially impactful, governed marketing operations.</p>
+  </div>
+</section>
+
+<!-- Brand Coherence Imperative -->
+<section class="coherence">
+  <div class="section-inner">
+    <div class="coherence-label reveal d1">The Commercial Imperative</div>
+    <h2 class="coherence-title reveal d2">In a digital-first economy, coherent brand experience is a board-level commercial imperative.</h2>
+    <p class="coherence-sub reveal d3">As customer interactions shift to digital channels, brand coherence becomes the single most important mechanism for building trust, preserving market position, and protecting enterprise value.</p>
+    <div class="coherence-grid">
+      <div class="coherence-item reveal d4">
+        <h3 class="coherence-heading">Omnichannel Coherence.</h3>
+        <p class="coherence-text">Brand experiences remain seamless across online and offline spaces. Every touchpoint reinforces the same enterprise promise without compromise.</p>
+      </div>
+      <div class="coherence-item reveal d5">
+        <h3 class="coherence-heading">Operational Manuals.</h3>
+        <p class="coherence-text">Guidelines and frameworks that protect brand identity during scale. Standards ensure identity is never compromised by execution volume.</p>
+      </div>
+      <div class="coherence-item reveal d6">
+        <h3 class="coherence-heading">Narrative Protection.</h3>
+        <p class="coherence-text">Governance that allows departments to scale without dilution. Consistency acts as a mechanism for building and preserving market trust.</p>
       </div>
     </div>
   </div>
@@ -1183,20 +1549,22 @@ section {
     <p class="team-card-bio reveal d3" style="text-align:center; max-width:720px; margin:0 auto 3.5rem; font-size:1rem; opacity:0.8;">Prameela Nair Collective is built on a simple principle: the best outcomes come from the right people, not the biggest teams. Prameela draws on 25 years of enterprise brand leadership to handpick vetted professionals and specialist organisations, assembling the exact capabilities each engagement demands. The result is a collective that moves with the precision of an in-house team and the range of a global network, delivering growth across brand, communications, and commercial strategy.</p>
     <div class="team-duo-grid">
       <div class="team-card reveal d3">
+        <div class="team-card-photo"><img src="photos/prameela.jpg" alt="Prameela Nair" loading="lazy"></div>
         <div class="team-card-role">Founder</div>
         <h3 class="team-card-name">Prameela Nair.</h3>
-        <p class="team-card-bio">25 years building enterprise brands across banking and financial services. From ADCB to leading a Top 10 UAE Brand in 2024, she has shaped how some of the region's most prominent financial institutions communicate, grow, and compete. Now she builds what she spent a career mastering.</p>
+        <p class="team-card-bio">25+ years of enterprise marketing leadership across the UAE's most complex financial institutions. She co-led ADCB's iconic repositioning that secured Top 10 UAE Brand status, directed brand continuity through three major mergers (UNB, Al Hilal Bank, RBS UAE), and pioneered the bank's digital-first channel shift across retail, corporate, private, and Islamic banking sectors.</p>
         <ul class="team-card-skills">
           <li class="team-card-skill">Enterprise Brand Strategy</li>
           <li class="team-card-skill">Banking &amp; Financial Services</li>
-          <li class="team-card-skill">Investor Communications</li>
-          <li class="team-card-skill">Leadership Advisory</li>
+          <li class="team-card-skill">M&amp;A Brand Continuity</li>
+          <li class="team-card-skill">Digital Transformation</li>
           <li class="team-card-skill">Stanford &middot; Google Certified</li>
         </ul>
         <div class="team-card-divider"></div>
         <p class="team-card-quote">"She doesn't just understand enterprise brands. She has built them from the inside."</p>
       </div>
       <div class="team-card reveal d4">
+        <div class="team-card-photo"><img src="photos/kiara.jpg" alt="Kiara" loading="lazy"></div>
         <div class="team-card-role">Principal Consultant</div>
         <h3 class="team-card-name">Kiara.</h3>
         <p class="team-card-bio">17 years proving that the gap between strategy and story is where brands are lost. Kiara brings the rare craft of making complex ideas land simply, whether that means narrative frameworks that guide campaigns or board-level presentations that move stakeholders.</p>
@@ -1223,6 +1591,7 @@ section {
     </div>
     <div class="team-duo-grid">
       <div class="team-card reveal d3">
+        <div class="team-card-photo"><img src="photos/balaji.jpg" alt="Balaji" loading="lazy"></div>
         <div class="team-card-role">Growth Marketing</div>
         <h3 class="team-card-name">Balaji.</h3>
         <a class="team-card-link" href="https://coredigitalexpansion.com/" target="_blank" rel="noopener noreferrer">See More</a>
@@ -1238,6 +1607,7 @@ section {
         <p class="team-card-quote">"A Swiss Army knife for growth. The breadth of exposure is the advantage."</p>
       </div>
       <div class="team-card reveal d4">
+        <div class="team-card-photo"><img src="photos/aiyana.jpg" alt="Aiyana Mansoori" loading="lazy"></div>
         <div class="team-card-role">Content &amp; Creative</div>
         <h3 class="team-card-name">Aiyana.</h3>
         <a class="team-card-link" href="https://notanagency.me/" target="_blank" rel="noopener noreferrer">See More</a>
@@ -1253,6 +1623,7 @@ section {
         <p class="team-card-quote">"Partnership over process. Work closely with brands, not around them."</p>
       </div>
       <div class="team-card reveal d5">
+        <div class="team-card-photo"><img src="photos/su-fen.jpg" alt="Su Fen Goh" loading="lazy"></div>
         <div class="team-card-role">AI &amp; Automation</div>
         <h3 class="team-card-name">Su Fen Goh.</h3>
         <a class="team-card-link" href="https://trychad.com/" target="_blank" rel="noopener noreferrer">See More</a>
@@ -1294,35 +1665,55 @@ section {
   </div>
 </section>
 
-<!-- Services -->
+<!-- Services / Curated Alliance -->
 <section class="services">
   <div class="section-inner">
-    <h2 class="services-title reveal d1">Six things we do. One outcome.</h2>
-    <p class="services-sub reveal d2">A communications engine that performs at enterprise scale.</p>
+    <h2 class="services-title reveal d1">A curated alliance of media, tech, and creative engines.</h2>
+    <p class="services-sub reveal d2">Best-in-class capabilities across four critical marketing domains, governed by a single strategic narrative to ensure coherence and commercial impact.</p>
     <div class="services-grid">
       <div class="service-card reveal d1">
-        <h3 class="service-name">Align.</h3>
-        <p class="service-desc">Investor, board and leadership communication. Making sure every stakeholder hears the same story.</p>
+        <h3 class="service-name">Performance Marketing.</h3>
+        <ul class="service-bullets">
+          <li class="service-bullet">Google Search, Shopping &amp; Display</li>
+          <li class="service-bullet">Meta Ads</li>
+          <li class="service-bullet">TikTok, LinkedIn &amp; programmatic</li>
+          <li class="service-bullet">Audience segmentation</li>
+          <li class="service-bullet">Retargeting funnels</li>
+          <li class="service-bullet">ROI-led creative strategy</li>
+        </ul>
       </div>
       <div class="service-card reveal d2">
-        <h3 class="service-name">Architect.</h3>
-        <p class="service-desc">Brand architecture and identity systems. The structural blueprint behind every message.</p>
+        <h3 class="service-name">Data &amp; Attribution.</h3>
+        <ul class="service-bullets">
+          <li class="service-bullet">Cross-channel attribution</li>
+          <li class="service-bullet">Server-side tracking</li>
+          <li class="service-bullet">CRM integration &amp; lead scoring</li>
+          <li class="service-bullet">Custom dashboards</li>
+          <li class="service-bullet">Marketing mix modelling</li>
+          <li class="service-bullet">Privacy-compliant measurement</li>
+        </ul>
       </div>
       <div class="service-card reveal d3">
-        <h3 class="service-name">Integrate.</h3>
-        <p class="service-desc">360-degree marketing across every channel. Coherence at scale.</p>
+        <h3 class="service-name">Technology &amp; AI.</h3>
+        <ul class="service-bullets">
+          <li class="service-bullet">AI sales &amp; support agents</li>
+          <li class="service-bullet">Multilingual conversational AI</li>
+          <li class="service-bullet">AI website design</li>
+          <li class="service-bullet">Marketing automation</li>
+          <li class="service-bullet">Predictive campaign intelligence</li>
+          <li class="service-bullet">Enterprise AI safety</li>
+        </ul>
       </div>
       <div class="service-card reveal d4">
-        <h3 class="service-name">Perform.</h3>
-        <p class="service-desc">Digital, content and performance marketing. Measurable growth, not vanity metrics.</p>
-      </div>
-      <div class="service-card reveal d5">
-        <h3 class="service-name">Build.</h3>
-        <p class="service-desc">Team capability and internal transformation. We build the machine, then hand over the keys.</p>
-      </div>
-      <div class="service-card reveal d6">
-        <h3 class="service-name">Govern.</h3>
-        <p class="service-desc">Brand standards, compliance and governance. Consistency isn't optional at enterprise scale.</p>
+        <h3 class="service-name">Creative &amp; Social.</h3>
+        <ul class="service-bullets">
+          <li class="service-bullet">Creative direction</li>
+          <li class="service-bullet">Social media strategy</li>
+          <li class="service-bullet">Influencer marketing</li>
+          <li class="service-bullet">Launch campaign frameworks</li>
+          <li class="service-bullet">UGC &amp; creator campaigns</li>
+          <li class="service-bullet">Experiential events</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -1333,8 +1724,8 @@ section {
   <div class="process-accent"></div>
   <div class="section-inner">
     <div class="process-label reveal d1">The Framework</div>
-    <h2 class="process-title reveal d2">PNC OS&trade;</h2>
-    <p class="process-sub reveal d3">The five-phase marketing architecture framework.</p>
+    <h2 class="process-title reveal d2">The Nairative Framework.</h2>
+    <p class="process-sub reveal d3">A five-phase marketing architecture designed for structural endurance and performance — transitioning organisations from ad-hoc execution to structured, always-on performance at enterprise scale.</p>
     <div class="process-timeline">
       <div class="phase reveal d1">
         <div class="phase-dot"></div>
@@ -1392,44 +1783,103 @@ section {
         </ul>
       </div>
     </div>
-    <p class="process-outcome reveal d6">A structured, always-on marketing function built to perform without dependency on any single agency.</p>
+    <p class="process-outcome reveal d6">A structured, always-on marketing function built to perform independently and at enterprise scale.</p>
   </div>
 </section>
 
-<!-- Work -->
+<!-- Work / ADCB Masterclass -->
 <section class="work" id="work">
   <div class="section-inner">
     <h2 class="work-title reveal d1">The work.</h2>
-    <div class="work-grid">
-      <div class="work-card reveal d1">
-        <h3 class="work-brand">ADCB</h3>
-        <div class="work-sector">Financial Services</div>
-        <p class="work-desc">Top 10 Most Valuable Brand in UAE. Built through 3 major positioning cycles.</p>
+    <p class="work-sub reveal d2">A masterclass in long-cycle brand stewardship through mergers, recessions, and digital transformation.</p>
+
+    <div class="work-feature reveal d3">
+      <div class="work-feature-header">
+        <div class="work-feature-brand">ADCB</div>
+        <div class="work-feature-sector">Financial Services &middot; UAE</div>
       </div>
-      <div class="work-card reveal d2">
+      <div class="work-phases">
+        <div class="work-phase">
+          <div class="work-phase-num">01</div>
+          <h4 class="work-phase-title">Brand Foundation.</h4>
+          <div class="work-phase-period">Early Stage</div>
+          <p class="work-phase-text">Established core identity and built the retail marketing function from scratch.</p>
+        </div>
+        <div class="work-phase">
+          <div class="work-phase-num">02</div>
+          <h4 class="work-phase-title">Brand Positioning.</h4>
+          <div class="work-phase-period">2008 Recession</div>
+          <p class="work-phase-text">Co-led iconic repositioning that secured Top 10 UAE Brand status.</p>
+        </div>
+        <div class="work-phase">
+          <div class="work-phase-num">03</div>
+          <h4 class="work-phase-title">Transformation.</h4>
+          <div class="work-phase-period">Growth Phase</div>
+          <p class="work-phase-text">Evolved the brand through three major mergers and a complete digital-first channel shift.</p>
+        </div>
+      </div>
+      <div class="work-supporting">
+        <div class="work-support-block">
+          <div class="work-support-label">M&amp;A Brand Continuity</div>
+          <p class="work-support-text">Directed all marketing and communications for the UNB merger and the acquisitions of Al Hilal Bank (2019) and RBS UAE retail (2010), ensuring zero brand dilution and stakeholder trust.</p>
+        </div>
+        <div class="work-support-block">
+          <div class="work-support-label">Digital Foundations</div>
+          <p class="work-support-text">Launched ADCB's early internet banking platform, acquired adcb.com, and built the bank's first corporate website.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="work-others-label reveal d4">Adjacent enterprise experience</div>
+    <div class="work-grid">
+      <div class="work-card reveal d4">
         <h3 class="work-brand">Mastercard</h3>
         <div class="work-sector">Payments &amp; Technology</div>
         <p class="work-desc">Enterprise campaign architecture aligned to MENA commercial strategy.</p>
       </div>
-      <div class="work-card reveal d3">
+      <div class="work-card reveal d5">
         <h3 class="work-brand">Amazon Prime Video</h3>
         <div class="work-sector">Entertainment &amp; Media</div>
         <p class="work-desc">MENA market entry narrative. Global positioning made locally resonant.</p>
       </div>
-      <div class="work-card reveal d4">
+      <div class="work-card reveal d6">
         <h3 class="work-brand">American Express</h3>
         <div class="work-sector">Financial Services</div>
         <p class="work-desc">Premium brand narrative and acquisition platform across GCC markets.</p>
       </div>
-      <div class="work-card reveal d5">
+      <div class="work-card reveal d7">
         <h3 class="work-brand">Emaar</h3>
         <div class="work-sector">Real Estate</div>
         <p class="work-desc">Brand architecture and communications system across a $10B+ property portfolio.</p>
       </div>
-      <div class="work-card reveal d6">
+      <div class="work-card reveal d7">
         <h3 class="work-brand">Allianz</h3>
         <div class="work-sector">Insurance</div>
         <p class="work-desc">Regional brand transformation. Complex products made clear, compelling, and trusted.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Governed AI Coworkers / Chad AI Partnership -->
+<section class="ai-partnership">
+  <div class="ai-accent"></div>
+  <div class="section-inner">
+    <div class="ai-label reveal d1">Governed AI Productivity</div>
+    <h2 class="ai-title reveal d2">Governed AI coworkers deliver 40%+ reduction in manual tasks with zero compromise on data sovereignty.</h2>
+    <p class="ai-sub reveal d3">Through an exclusive UAE partnership with Singapore-based Chad AI, enterprise-grade AI coworkers &mdash; built by elite engineers from Stripe, Uber, and J.P. Morgan &mdash; improve operational speed while maintaining the highest security standards.</p>
+    <div class="ai-grid">
+      <div class="ai-card reveal d4">
+        <h3 class="ai-card-title">Data Sovereignty.</h3>
+        <p class="ai-card-text">Deploy task-specific AI coworkers built by seasoned engineers from Stripe, Uber, and J.P. Morgan. Zero compromise on security. UAE at heart.</p>
+      </div>
+      <div class="ai-card reveal d5">
+        <h3 class="ai-card-title">Security Standards.</h3>
+        <p class="ai-card-text">CASA Tier 2 Certified. Recognised official tech provider by Meta, Shopify, and Monday.com. Actively pursuing SOC-2 and GDPR certifications. Enterprise-grade safety.</p>
+      </div>
+      <div class="ai-card reveal d6">
+        <h3 class="ai-card-title">Measurable Impact.</h3>
+        <p class="ai-card-text">30+ native integrations across project management and CRM stacks. Rapid operational gains within 30 days. 40%+ reduction in manual tasks.</p>
       </div>
     </div>
   </div>
@@ -1506,7 +1956,8 @@ section {
     <p class="cta-pre reveal d1">Let's build a brilliant</p>
     <h2 class="cta-headline reveal d2">NARRATIVE.</h2>
     <div class="cta-line reveal d3"></div>
-    <div class="cta-contact reveal d4">
+    <p class="cta-mantra reveal d4">UAE at Heart. World on Our Horizon.</p>
+    <div class="cta-contact reveal d5">
       <p><a href="mailto:connect@nairativebyprameela.com">connect@nairativebyprameela.com</a></p>
       <p>+971 50 661 5586</p>
       <p>Dubai &middot; London &middot; Mumbai</p>
@@ -1646,7 +2097,7 @@ document.querySelectorAll('.work-card').forEach(card => {
   const btn = document.getElementById('nextBtn');
   const counter = document.getElementById('nextCounter');
   const sections = Array.from(document.querySelectorAll('section'));
-  const darkSections = new Set(['hero', 'problem', 'process', 'cta']);
+  const darkSections = new Set(['hero', 'problem', 'process', 'ai-partnership', 'cta']);
   let currentIdx = 0;
 
   function getCurrentSection() {

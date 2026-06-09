@@ -1379,25 +1379,24 @@ section {
   stroke-linecap: round;
   stroke-linejoin: round;
 }
-/* Section counter sits above the button */
+/* Section counter sits in the bottom-right corner */
 .next-btn-counter {
   position: fixed;
-  bottom: 5.4rem;
-  left: 50%;
+  bottom: 2rem;
+  right: 2.5rem;
   z-index: 90;
   font-family: var(--font-body);
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.22em;
   color: var(--gunmetal);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s ease;
-  text-align: center;
+  text-align: right;
   line-height: 1;
-  transform: translateX(-50%);
 }
-.next-btn-counter.show { opacity: 0.55; }
+.next-btn-counter.show { opacity: 0.5; }
 /* On dark sections, flip to light colors */
 .next-btn.on-dark { background: rgba(245,241,235,0.15); backdrop-filter: blur(10px); }
 .next-btn.on-dark:hover { background: var(--terracotta); }
@@ -1520,15 +1519,14 @@ section {
   stroke-width: 1.8;
   vector-effect: non-scaling-stroke;
 }
-/* Architectural underlining motion: left tick, line draws across, right tick */
-.emph-underline line:nth-child(1) {
-  transition: stroke-dashoffset 0.35s cubic-bezier(0.65, 0, 0.35, 1) 1.3s !important;
+/* Architectural underlining motion: left tick, line draws across, right tick.
+   Timing is JS-controlled (see startUnderlineSequence) so it fires AFTER the
+   preloader dismisses and the hero text reveals, not during the preloader. */
+.emph-underline line {
+  transition: stroke-dashoffset 0.4s cubic-bezier(0.65, 0, 0.35, 1) !important;
 }
 .emph-underline line:nth-child(2) {
-  transition: stroke-dashoffset 1.0s cubic-bezier(0.65, 0, 0.35, 1) 1.65s !important;
-}
-.emph-underline line:nth-child(3) {
-  transition: stroke-dashoffset 0.35s cubic-bezier(0.65, 0, 0.35, 1) 2.65s !important;
+  transition: stroke-dashoffset 1.1s cubic-bezier(0.65, 0, 0.35, 1) !important;
 }
 
 /* CTA UAE skyline */
@@ -1605,10 +1603,7 @@ section {
     <span>Dubai</span>
     <span>London</span>
     <span>Mumbai</span>
-  </div>
-  <div class="hero-scroll">
-    <div class="hero-scroll-line"></div>
-    <span>Scroll</span>
+    <span>Los Angeles</span>
   </div>
 </section>
 
@@ -2182,7 +2177,7 @@ section {
     <div class="cta-contact reveal d6">
       <p><a href="mailto:connect@nairativebyprameela.com">connect@nairativebyprameela.com</a></p>
       <p>+971 50 661 5586</p>
-      <p>Dubai &middot; London &middot; Mumbai</p>
+      <p>Dubai &middot; London &middot; Mumbai &middot; Los Angeles</p>
     </div>
   </div>
   <div class="cta-footer">Narrative Intelligence for Enterprises That Mean Business.</div>
@@ -2225,7 +2220,8 @@ document.querySelectorAll('.reveal, .reveal-line, .pillar, .why-item, .phase').f
   revealObserver.observe(el);
 });
 
-// ── Architectural flourish draw-in ──
+// ── Architectural flourish draw-in (skip emph-underline; that one is tied to
+//    preloader dismissal so the user actually sees the motion) ──
 const drawObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -2234,7 +2230,28 @@ const drawObserver = new IntersectionObserver((entries) => {
     }
   });
 }, { threshold: 0.25, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.draw-svg').forEach(el => drawObserver.observe(el));
+document.querySelectorAll('.draw-svg:not(.emph-underline)').forEach(el => drawObserver.observe(el));
+
+// ── Hero underline sequence (left tick → horizontal line → right tick) ──
+function startUnderlineSequence() {
+  const lines = document.querySelectorAll('.emph-underline line');
+  if (lines.length < 3) return;
+  setTimeout(() => { lines[0].style.strokeDashoffset = '0'; }, 700);
+  setTimeout(() => { lines[1].style.strokeDashoffset = '0'; }, 1050);
+  setTimeout(() => { lines[2].style.strokeDashoffset = '0'; }, 2150);
+}
+(function wireUnderlineToPreloader() {
+  const preEl = document.getElementById('preloader');
+  if (!preEl) { startUnderlineSequence(); return; }
+  if (preEl.classList.contains('done')) { startUnderlineSequence(); return; }
+  const obs = new MutationObserver(() => {
+    if (preEl.classList.contains('done')) {
+      startUnderlineSequence();
+      obs.disconnect();
+    }
+  });
+  obs.observe(preEl, { attributes: true, attributeFilter: ['class'] });
+})();
 
 // ── Process timeline line draw-in ──
 const timelineObserver = new IntersectionObserver((entries) => {
